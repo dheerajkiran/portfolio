@@ -7,6 +7,7 @@ import Experience from './components/Experience.jsx'
 import Publications from './components/Publications.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
+import GithubActivity from './components/GithubActivity.jsx'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Projects />
       <Experience />
       <Publications />
+      <GithubActivity />
       <Contact />
       <Footer />
     </div>
