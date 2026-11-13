@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import { profile } from '../data/resume.js'
 
 const LINKS = [
@@ -11,7 +11,7 @@ const LINKS = [
   { href: '#contact', label: 'Contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ theme, onToggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -32,7 +32,7 @@ export default function Navbar() {
           D<span className="text-gradient">.</span>Enna
         </a>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6 xl:gap-8">
           {LINKS.map((l) => (
             <a
               key={l.href}
@@ -51,17 +51,31 @@ export default function Navbar() {
           </a>
         </div>
 
-        <button
-          className="md:hidden text-slate-200"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-panel/60 text-slate-300 transition-colors hover:border-cyan-glow/50 hover:text-cyan-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-glow"
+          >
+            {theme === 'dark' ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
+          </button>
+          <button
+            type="button"
+            className="lg:hidden inline-flex h-11 w-11 items-center justify-center text-slate-200"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </nav>
 
       {open && (
-        <div className="md:hidden bg-panel border-b border-line px-6 py-4 flex flex-col gap-4">
+        <div id="mobile-navigation" className="lg:hidden bg-panel border-b border-line px-6 py-4 flex flex-col gap-4">
           {LINKS.map((l) => (
             <a
               key={l.href}

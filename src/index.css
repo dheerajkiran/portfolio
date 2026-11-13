@@ -2,32 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  color-scheme: dark;
+  --color-bg: 5 7 10;
+  --color-panel: 11 15 22;
+  --color-line: 27 34 48;
+  --color-cyan: 94 234 212;
+  --color-accent: 125 211 252;
+  --color-slate-50: 248 250 252;
+  --color-slate-100: 241 245 249;
+  --color-slate-200: 226 232 240;
+  --color-slate-300: 203 213 225;
+  --color-slate-400: 148 163 184;
+  --color-slate-500: 100 116 139;
+  --color-slate-600: 71 85 105;
+  --color-slate-700: 51 65 85;
+  --color-grid: 255 255 255;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --color-bg: 246 248 250;
+  --color-panel: 255 255 255;
+  --color-line: 214 224 233;
+  --color-cyan: 15 118 110;
+  --color-accent: 3 105 161;
+  --color-slate-50: 15 23 42;
+  --color-slate-100: 15 23 42;
+  --color-slate-200: 30 41 59;
+  --color-slate-300: 51 65 85;
+  --color-slate-400: 71 85 105;
+  --color-slate-500: 82 98 118;
+  --color-slate-600: 94 109 127;
+  --color-slate-700: 186 201 215;
+  --color-grid: 15 23 42;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #05070a;
-  color: #e5eaf0;
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-slate-200));
 }
 
 ::selection {
-  background: #5eead4;
-  color: #05070a;
+  background: rgb(var(--color-cyan));
+  color: rgb(var(--color-bg));
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #05070a;
+  background: rgb(var(--color-bg));
 }
 ::-webkit-scrollbar-thumb {
-  background: #1b2230;
+  background: rgb(var(--color-line));
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2a3446;
+  background: rgb(var(--color-slate-500));
 }
 
 .section-label {
@@ -37,14 +73,14 @@ body {
 
 .grid-fade {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgb(var(--color-grid) / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(var(--color-grid) / 0.04) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #5eead4, #7dd3fc);
+  background: linear-gradient(90deg, rgb(var(--color-cyan)), rgb(var(--color-accent)));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

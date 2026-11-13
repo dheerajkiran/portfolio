@@ -4,13 +4,16 @@ export default {
   theme: {
     extend: {
       colors: {
-        bg: '#05070a',
-        panel: '#0b0f16',
-        line: '#1b2230',
+        bg: 'rgb(var(--color-bg) / <alpha-value>)',
+        panel: 'rgb(var(--color-panel) / <alpha-value>)',
+        line: 'rgb(var(--color-line) / <alpha-value>)',
         cyan: {
-          glow: '#5eead4',
+          glow: 'rgb(var(--color-cyan) / <alpha-value>)',
         },
-        accent: '#7dd3fc',
+        accent: 'rgb(var(--color-accent) / <alpha-value>)',
+        slate: Object.fromEntries([50, 100, 200, 300, 400, 500, 600, 700].map(shade => (
+          [shade, `rgb(var(--color-slate-${shade}) / <alpha-value>)`]
+        ))),
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'sans-serif'],
@@ -18,7 +21,7 @@ export default {
         body: ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        glow: '0 0 40px -10px rgba(94, 234, 212, 0.35)',
+        glow: '0 0 40px -10px rgb(var(--color-cyan) / 0.35)',
       },
     },
   },
