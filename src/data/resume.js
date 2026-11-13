@@ -3,7 +3,7 @@ export const profile = {
   title: 'Robotics & AI Engineer',
   tagline:
     'M.S. Robotics and Autonomous Systems (AI) building perception pipelines, LLM-driven systems, and real-time intelligent applications.',
-  email: 'denna@asu.edu',
+  email: 'dheerajkiran.e@gmail.com',
   phone: '623-330-6532',
   linkedin: 'https://linkedin.com/in/dheerajkiran',
   github: 'https://github.com/dheerajkiran',

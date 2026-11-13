@@ -13,7 +13,7 @@ export default function Contact() {
             Let's build something <span className="text-gradient">intelligent</span>.
           </h2>
           <p className="text-slate-400 max-w-xl mx-auto mb-10">
-            Open to roles and collaborations in robotics, computer vision, and applied AI.
+            Open to roles and collaborations in AI, Machine Learning, Robotics, and Computer Vision.
             Reach out directly or connect below.
           </p>
 
