@@ -4,14 +4,14 @@ import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react'
 import Scene from './Scene.jsx'
 import { profile } from '../data/resume.js'
 
-export default function Hero() {
+export default function Hero({ theme }) {
   return (
     <section id="top" className="relative h-screen min-h-[680px] w-full overflow-hidden bg-bg">
       <div className="absolute inset-0 grid-fade" />
 
       <div className="absolute inset-0">
         <Suspense fallback={null}>
-          <Scene />
+          <Scene theme={theme} />
         </Suspense>
       </div>
 

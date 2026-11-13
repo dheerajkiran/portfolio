@@ -4,6 +4,18 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#05070a" />
+    <script>
+      (() => {
+        let theme
+        try { theme = localStorage.getItem('portfolio-theme') } catch {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+        document.documentElement.dataset.theme = theme
+        document.querySelector('meta[name="theme-color"]').content = theme === 'light' ? '#f6f8fa' : '#05070a'
+      })()
+    </script>
     <title>Dheeraj Kiran Enna — Robotics &amp; AI</title>
     <meta name="description" content="Portfolio of Dheeraj Kiran Enna, M.S. Robotics and Autonomous Systems (AI) — machine learning, computer vision, and perception systems." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />

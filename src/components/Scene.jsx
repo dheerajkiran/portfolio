@@ -5,8 +5,10 @@ import { EffectComposer, Bloom, Vignette } from '@react-three/postprocessing'
 import RoboticArm from './RoboticArm.jsx'
 import ScanEffects from './ScanEffects.jsx'
 
-export default function Scene() {
+export default function Scene({ theme }) {
   const armEyeRef = useRef()
+  const light = theme === 'light'
+  const background = light ? '#f6f8fa' : '#05070a'
 
   return (
     <Canvas
@@ -15,10 +17,10 @@ export default function Scene() {
       camera={{ position: [3.9, 1.4, 5.2], fov: 38 }}
       gl={{ antialias: true, powerPreference: 'high-performance' }}
     >
-      <color attach="background" args={['#05070a']} />
-      <fog attach="fog" args={['#05070a', 7, 15]} />
+      <color attach="background" args={[background]} />
+      <fog attach="fog" args={[background, 7, 15]} />
 
-      <ambientLight intensity={0.55} />
+      <ambientLight intensity={light ? 0.85 : 0.55} />
       <directionalLight
         position={[4, 5, 3]}
         intensity={1.3}
@@ -40,10 +42,10 @@ export default function Scene() {
         args={[20, 20]}
         cellSize={0.5}
         cellThickness={0.5}
-        cellColor="#1b2230"
+        cellColor={light ? '#bac9d7' : '#1b2230'}
         sectionSize={2.5}
         sectionThickness={1}
-        sectionColor="#5eead4"
+        sectionColor={light ? '#0f766e' : '#5eead4'}
         fadeDistance={9}
         fadeStrength={1.5}
         infiniteGrid
@@ -73,8 +75,8 @@ export default function Scene() {
       />
 
       <EffectComposer multisampling={0}>
-        <Bloom intensity={0.85} luminanceThreshold={0.15} luminanceSmoothing={0.9} mipmapBlur />
-        <Vignette eskil={false} offset={0.15} darkness={0.6} />
+        <Bloom intensity={light ? 0.15 : 0.85} luminanceThreshold={light ? 0.9 : 0.15} luminanceSmoothing={0.9} mipmapBlur />
+        <Vignette eskil={false} offset={0.15} darkness={light ? 0.08 : 0.6} />
       </EffectComposer>
     </Canvas>
   )

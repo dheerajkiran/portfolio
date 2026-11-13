@@ -26,12 +26,12 @@ function SkillsOverview() {
                 <text x={labelX} y={labelY - (labels.length - 1) * 8} textAnchor="middle" dominantBaseline="middle" fill="currentColor" className="text-slate-300" fontSize="13">
                   {labels.map((label, j) => <tspan key={label} x={labelX} dy={j ? 18 : 0}>{label}</tspan>)}
                 </text>
-                <circle cx={x} cy={y} r="5" fill="#5eead4" />
+                <circle cx={x} cy={y} r="5" className="fill-cyan-glow" />
               </g>
             )
           })}
-          <polygon points={polygon(160)} fill="#5eead4" fillOpacity="0.08" stroke="#5eead4" strokeWidth="2" />
-          <circle cx="250" cy="230" r="4" fill="#5eead4" />
+          <polygon points={polygon(160)} fillOpacity="0.08" strokeWidth="2" className="fill-cyan-glow stroke-cyan-glow" />
+          <circle cx="250" cy="230" r="4" className="fill-cyan-glow" />
         </svg>
         <p className="text-xs text-slate-500 text-center">Six connected disciplines behind my work.</p>
       </div>
